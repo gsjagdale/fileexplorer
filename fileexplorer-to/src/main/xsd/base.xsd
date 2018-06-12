@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.shri.org/fw/base"
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.shri.org/fw/base" xmlns="http://www.shri.org/fw/base"
 	elementFormDefault="qualified">
+	<xs:simpleType name="FilterType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="LIKE" />
+			<xs:enumeration value="EQUALS" />
+		</xs:restriction>
+	</xs:simpleType>
 
-	<complexType name="FilterCriteria">
-		<sequence>
-			<element name="name" type="string" />
-			<element name="value" type="string" />
-		</sequence>
-	</complexType>
-</schema>
+	<xs:element name="FilterCriteria">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="name" type="xs:string" />
+				<xs:element name="filter" type="FilterType" />
+				<xs:element name="value" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
