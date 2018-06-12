@@ -6,6 +6,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.shri.fw.base.FilterCriteria;
+import org.shri.fw.base.FilterType;
 
 @Path("/main")
 public class TestService {
@@ -23,6 +24,7 @@ public class TestService {
 	public FilterCriteria getCriteria() {
 		FilterCriteria criteria = new FilterCriteria();
 		criteria.setName("fname");
+		criteria.setFilter(FilterType.EQUALS);
 		criteria.setValue("Shrikar");
 		return criteria;
 	}
